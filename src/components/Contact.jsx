@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { Mail, Instagram, Clock, Send, Phone, MapPin, MessageSquare } from 'lucide-react';
+import { Mail, Clock, Send, Phone, MapPin, MessageSquare } from 'lucide-react';
+
+// Custom Instagram Icon (Matches Lucide styling)
+const InstagramIcon = ({ className }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+  </svg>
+);
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,7 +20,7 @@ export default function Contact() {
 
   const servicesList = [
     "Hand-Painted Garments",
-    "Patchwork & Appliqué",
+    "Patchwork & Appliqu�",
     "Customized Embroidery",
     "Customized Accessories",
     "Bespoke Design & Personalization",
@@ -30,21 +39,19 @@ export default function Contact() {
     const phoneNumber = "9779746492408";
 
     // Tailored WhatsApp message template for customize_ans Studio
-    const message = `✨ *New Custom Garment Inquiry — customize_ans Studio* ✨%0A%0A` +
+    const message = `? *New Custom Garment Inquiry � customize_ans Studio* ?%0A%0A` +
       `*Client Name:* ${encodeURIComponent(formData.name)}%0A` +
       `*Email Address:* ${encodeURIComponent(formData.email)}%0A` +
       `*Requested Service:* ${encodeURIComponent(formData.service)}%0A%0A` +
       `*Customization Details & Vision:*%0A${encodeURIComponent(formData.details)}%0A%0A` +
-      `Looking forward to collaborating on this piece! 🎨🖌️`;
+      `Looking forward to collaborating on this piece! ?????`;
 
-    // Open WhatsApp directly in new tab
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 
   return (
     <div className="w-full space-y-0">
       
-      {/* SECTION 1: Page Header */}
       <section className="w-full bg-[#0B0C10] py-20 px-6 sm:px-12 lg:px-20 border-b border-[#C5C6C7]/10">
         <div className="w-full text-center space-y-4">
           <span className="text-xs uppercase tracking-widest text-[#66FCF1] font-bold">Start Your Creation</span>
@@ -53,19 +60,15 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* SECTION 2: Form & Details */}
       <section className="w-full bg-[#1F2833] py-20 px-6 sm:px-12 lg:px-20">
         <div className="w-full grid md:grid-cols-2 gap-12 items-start">
           
-          {/* Custom Inquiry Form */}
           <div className="bg-[#0B0C10] border border-[#C5C6C7]/15 p-8 rounded-3xl shadow-xl space-y-6">
             <h3 className="text-2xl font-bold text-white flex items-center gap-2">
               <MessageSquare className="w-6 h-6 text-[#66FCF1]" /> Send Inquiry via WhatsApp
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-5">
-              
-              {/* 1. Name Input */}
               <div>
                 <label className="block text-xs font-semibold text-[#C5C6C7] mb-2">Your Name</label>
                 <input 
@@ -79,7 +82,6 @@ export default function Contact() {
                 />
               </div>
 
-              {/* 2. Email Input */}
               <div>
                 <label className="block text-xs font-semibold text-[#C5C6C7] mb-2">Email Address</label>
                 <input 
@@ -93,7 +95,6 @@ export default function Contact() {
                 />
               </div>
 
-              {/* 3. Service Selection Dropdown */}
               <div>
                 <label className="block text-xs font-semibold text-[#C5C6C7] mb-2">Select Service Required</label>
                 <select
@@ -110,7 +111,6 @@ export default function Contact() {
                 </select>
               </div>
 
-              {/* 4. Details / Customization Ideas */}
               <div>
                 <label className="block text-xs font-semibold text-[#C5C6C7] mb-2">Customization Details & Ideas</label>
                 <textarea 
@@ -120,7 +120,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required 
                   className="w-full bg-[#1F2833] border border-[#C5C6C7]/20 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-[#66FCF1] transition-colors" 
-                  placeholder="Describe your garment and design vision (e.g., denim jacket with hand-painted character on back)..."
+                  placeholder="Describe your garment and design vision..."
                 ></textarea>
               </div>
 
@@ -133,7 +133,6 @@ export default function Contact() {
             </form>
           </div>
 
-          {/* Contact Details & Image Card */}
           <div className="flex flex-col justify-between space-y-8">
             <div className="aspect-video w-full rounded-3xl overflow-hidden bg-[#0B0C10] border border-[#C5C6C7]/15 shadow-xl relative">
               <img 
@@ -144,7 +143,7 @@ export default function Contact() {
             </div>
 
             <div className="space-y-4 text-sm text-[#C5C6C7] bg-[#0B0C10] p-6 rounded-3xl border border-[#C5C6C7]/15 shadow-xl">
-              <p className="flex items-center gap-3"><Instagram className="w-5 h-5 text-[#66FCF1]" /> @customize_ans</p>
+              <p className="flex items-center gap-3"><InstagramIcon className="w-5 h-5 text-[#66FCF1]" /> @customize_ans</p>
               <p className="flex items-center gap-3"><Mail className="w-5 h-5 text-[#66FCF1]" /> customize.ans@gmail.com</p>
               <p className="flex items-center gap-3"><Phone className="w-5 h-5 text-[#66FCF1]" /> +977 9746492408</p>
               <p className="flex items-center gap-3"><MapPin className="w-5 h-5 text-[#66FCF1]" /> Boudha, Kathmandu</p>
@@ -154,7 +153,6 @@ export default function Contact() {
 
         </div>
       </section>
-
     </div>
   );
 }
