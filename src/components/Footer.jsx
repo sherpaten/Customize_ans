@@ -1,58 +1,41 @@
 import React from 'react';
-import { Palette, Mail, Instagram, ArrowUp } from 'lucide-react';
-import LogoImg from '/Logo.jpeg';
+import { Link } from 'react-router-dom';
 
-export default function Footer({ setActiveTab }) {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+export default function Footer() {
   return (
-    <footer className="w-full bg-[#0B0C10] border-t border-[#C5C6C7]/10 py-12 px-6 sm:px-12 lg:px-16 relative z-30">
-      <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8">
-        
-        {/* Brand Info */}
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-[#66FCF1] flex items-center justify-center text-[#0B0C10] overflow-hidden">
-            <img src={LogoImg} alt="customize_ans Logo" className="w-full h-full object-cover" />
+    <footer className="bg-[#002B45] text-white border-t border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            <img src="/logo.png" alt="RipTides Cocktails & Grill Logo" className="h-10 w-auto object-contain" />
+            <h3 className="text-xl font-serif font-black text-[#00A6C7]">RIPTIDES COCKTAILS & GRILL</h3>
           </div>
-          <div>
-            <span className="text-lg font-black tracking-wider text-white font-mono">
-              customize_ans
-            </span>
-            <p className="text-[9px] text-[#66FCF1] font-bold tracking-widest uppercase">
-              ART STUDIO
-            </p>
-          </div>
+          <p className="text-slate-300 text-sm font-medium">
+            168 East Montauk Highway<br />
+            Lindenhurst, NY 11757
+          </p>
+          <p className="text-slate-300 text-sm font-medium mt-2">
+            Phone: <a href="tel:+16315053200" className="text-[#00A6C7] hover:underline">(631) 505-3200</a>
+          </p>
         </div>
-
-        {/* Quick Links */}
-        <div className="flex flex-wrap justify-center gap-6 text-xs text-[#C5C6C7] font-semibold">
-          <button onClick={() => { setActiveTab('home'); scrollToTop(); }} className="hover:text-[#66FCF1] transition-colors">Home</button>
-          <button onClick={() => { setActiveTab('about'); scrollToTop(); }} className="hover:text-[#66FCF1] transition-colors">About Us</button>
-          <button onClick={() => { setActiveTab('services'); scrollToTop(); }} className="hover:text-[#66FCF1] transition-colors">Services</button>
-          <button onClick={() => { setActiveTab('gallery'); scrollToTop(); }} className="hover:text-[#66FCF1] transition-colors">Gallery</button>
-          <button onClick={() => { setActiveTab('contact'); scrollToTop(); }} className="hover:text-[#66FCF1] transition-colors">Contact</button>
+        <div>
+          <h4 className="text-sm font-black uppercase text-slate-400 tracking-wider mb-4">Quick Links</h4>
+          <ul className="space-y-2 text-sm font-medium">
+            <li><Link to="/" className="hover:text-[#00A6C7]">Home</Link></li>
+            <li><Link to="/about" className="hover:text-[#00A6C7]">About</Link></li>
+            <li><Link to="/menu" className="hover:text-[#00A6C7]">Menu</Link></li>
+            <li><Link to="/events" className="hover:text-[#00A6C7]">Events</Link></li>
+            <li><Link to="/contact" className="hover:text-[#00A6C7]">Contact</Link></li>
+            <li><Link to="/merchandise" className="hover:text-[#00A6C7]">Merchandise</Link></li>
+          </ul>
         </div>
-
-        {/* Social & Back to Top */}
-        <div className="flex items-center gap-4">
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="p-2.5 rounded-xl bg-[#1F2833] border border-[#C5C6C7]/15 text-[#C5C6C7] hover:text-[#66FCF1] transition-all">
-            <Instagram className="w-4 h-4" />
-          </a>
-          <button 
-            onClick={scrollToTop} 
-            className="p-2.5 rounded-xl bg-[#66FCF1] text-[#0B0C10] font-bold shadow-lg hover:scale-105 transition-transform"
-            aria-label="Back to Top"
-          >
-            <ArrowUp className="w-4 h-4" />
-          </button>
+        <div>
+          <h4 className="text-sm font-black uppercase text-slate-400 tracking-wider mb-4">Hours</h4>
+          <p className="text-slate-300 text-sm font-medium">Mon - Sun: 11:30 AM - Late</p>
         </div>
-
       </div>
-
-      <div className="mt-8 pt-6 border-t border-[#C5C6C7]/10 text-center text-[11px] text-[#C5C6C7]">
-        Â© {new Date().getFullYear()} customize_ans Studio. All rights reserved. Where Art Meets Fashion, Without Limits.
+      <div className="border-t border-slate-800 py-6 text-center text-xs text-slate-400 font-medium">
+        © {new Date().getFullYear()} RipTides Cocktails & Grill. All rights reserved.
       </div>
     </footer>
   );
