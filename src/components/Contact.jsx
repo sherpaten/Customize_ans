@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Instagram, Clock, Send, Phone, MapPin, MessageSquare } from 'lucide-react';
 
-// Direct Image Import
-import ContactImg from '/contact.jpeg';
-
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -136,11 +133,11 @@ export default function Contact() {
             </form>
           </div>
 
-          {/* Contact Details & QR Card */}
+          {/* Contact Details & Image Card */}
           <div className="flex flex-col justify-between space-y-8">
             <div className="aspect-video w-full rounded-3xl overflow-hidden bg-[#0B0C10] border border-[#C5C6C7]/15 shadow-xl relative">
               <img 
-                src={ContactImg} 
+                src="/contact.jpeg" 
                 alt="Customize Ans Studio Contact" 
                 className="w-full h-full object-cover"
               />
