@@ -3,7 +3,8 @@ import { Palette, ArrowRight, Sparkles, Scissors, Shirt, CheckCircle2, HeartHand
 import '../styles/home.css';
 
 // Direct Image Imports
-import HomeHeroImg from '/Home pic.jpeg';
+// Note: Relative imports from src/Assets are valid. 
+// Public folder imports (like /Home pic.jpeg) must be used directly in the src attribute.
 import HandprintImg from '../Assets/Gallary/Handprint.jpeg';
 import Gallary1Img from '../Assets/Gallary/Gallary1.jpeg';
 import Gallary2Img from '../Assets/Gallary/Gallary2.jpeg';
@@ -54,7 +55,7 @@ export default function Home({ setActiveTab, addToCart }) {
       <section className="relative min-h-[650px] sm:min-h-[720px] w-full flex items-center bg-[#0B0C10] overflow-hidden px-6 sm:px-12 lg:px-20 py-20">
         <div className="absolute inset-0 z-0">
           <img 
-            src={HomeHeroImg} 
+            src="/Home pic.jpeg" 
             alt="Customize Ans Wearable Art" 
             className="w-full h-full object-cover object-right sm:object-center opacity-85 hover:scale-105 transition-transform duration-700"
           />
