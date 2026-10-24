@@ -288,7 +288,10 @@ export default function Home({ setActiveTab, addToCart }) {
           Send us your ideas, references, or concepts today and let's turn your clothing into a custom masterpiece.
         </p>
         <button
-          onClick={() => setActiveTab('contact')}
+          onClick={() => {
+            setActiveTab('contact');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           className="px-9 py-4 rounded-xl bg-[#0B0C10] text-[#66FCF1] font-black text-sm shadow-2xl hover:scale-105 transition-transform"
         >
           Start Your Custom Order Inquiry
