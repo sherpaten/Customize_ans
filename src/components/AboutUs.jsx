@@ -1,8 +1,7 @@
 import React from 'react';
 import { Sparkles, Palette, Heart, CheckCircle2 } from 'lucide-react';
 
-// Direct Image Imports
-import ProfileImg from '/Profile.jpeg';
+// Relative imports from src/Assets are perfectly fine in Vite
 import ArtImg from '../Assets/Design/Art.jpeg';
 import CustomizeImg from '../Assets/Customize/Customize.jpeg';
 
@@ -39,7 +38,7 @@ export default function AboutUs() {
           {/* Profile Pic 1 */}
           <div className="w-full aspect-square rounded-3xl overflow-hidden bg-[#0B0C10] border border-[#C5C6C7]/20 relative shadow-2xl group">
             <img 
-              src={ProfileImg} 
+              src="/Profile.jpeg" 
               alt="Studio Profile" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
