@@ -1,0 +1,10 @@
+/* Footer Custom Styles */
+.footer-top-border {
+  border-top: 1px solid rgba(30, 41, 59, 0.8);
+}
+.footer-link-hover {
+  transition: color 0.2s ease-in-out;
+}
+.footer-link-hover:hover {
+  color: #14b8a6;
+}

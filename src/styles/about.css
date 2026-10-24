@@ -1,0 +1,5 @@
+/* About Us Specific Styles */
+.about-hero-pattern {
+  background-image: radial-gradient(#1e293b 1px, transparent 1px);
+  background-size: 24px 24px;
+}

@@ -1,0 +1,10 @@
+/* Home Page Specific Custom Styles & Animations */
+.hero-glow-effect {
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.15) 0%, rgba(3, 7, 18, 0) 70%);
+}
+.card-hover-shadow {
+  transition: all 0.3s ease-in-out;
+}
+.card-hover-shadow:hover {
+  box-shadow: 0 20px 25px -5px rgba(20, 184, 166, 0.1), 0 8px 10px -6px rgba(20, 184, 166, 0.05);
+}

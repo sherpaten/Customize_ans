@@ -1,0 +1,13 @@
+/* Navigation Bar Custom Styles */
+.navbar-blur {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.navbar-logo-glow {
+  box-shadow: 0 0 15px rgba(20, 184, 166, 0.25);
+}
+.nav-item-active {
+  background: linear-gradient(to right, #14b8a6, #06b6d4);
+  color: #020617;
+  font-weight: 600;
+}
