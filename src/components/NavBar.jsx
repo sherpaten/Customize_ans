@@ -1,98 +1,54 @@
 import React, { useState } from 'react';
-import { Palette, ShoppingBag, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-export default function NavBar({ activeTab, setActiveTab, cartCount, setIsCartOpen }) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About Us' },
-    { id: 'services', label: 'Services' },
-    { id: 'gallery', label: 'Gallery' },
-    { id: 'contact', label: 'Contact' }
-  ];
+export default function NavBar() {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#0B0C10]/90 backdrop-blur-md border-b border-[#C5C6C7]/10">
-      <div className="w-full px-6 sm:px-12 lg:px-16 h-20 flex items-center justify-between">
-        
-        {/* Brand Logo & Name */}
-        <div 
-          onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }}
-          className="flex items-center gap-3 cursor-pointer group"
+    <nav className="bg-[#002B45] text-white sticky top-0 z-50 border-b border-[#007F9B]/30 shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+        <Link to="/" className="flex items-center gap-3">
+          <img src="/logo.png" alt="RipTides Cocktails & Grill Logo" className="h-12 w-auto object-contain" />
+          <span className="font-serif font-black text-xl tracking-tight text-[#00A6C7]">RIPTIDES</span>
+        </Link>
+
+        {/* Desktop Links */}
+        <div className="hidden md:flex space-x-8 text-xs font-black uppercase tracking-widest">
+          <Link to="/" className="hover:text-[#00A6C7] transition-colors">Home</Link>
+          <Link to="/about" className="hover:text-[#00A6C7] transition-colors">About</Link>
+          <Link to="/menu" className="hover:text-[#00A6C7] transition-colors">Menu</Link>
+          <Link to="/events" className="hover:text-[#00A6C7] transition-colors">Events</Link>
+          <Link to="/contact" className="hover:text-[#00A6C7] transition-colors">Contact</Link>
+          <Link to="/merchandise" className="hover:text-[#00A6C7] transition-colors">Merchandise</Link>
+        </div>
+
+        {/* Mobile menu button */}
+        <button 
+          onClick={() => setIsOpen(!isOpen)} 
+          aria-label="Toggle navigation menu"
+          className="md:hidden text-white hover:text-[#00A6C7] focus:outline-none"
         >
-          <div className="w-10 h-10 rounded-xl bg-[#66FCF1] flex items-center justify-center text-[#0B0C10] shadow-lg group-hover:scale-105 transition-transform overflow-hidden">
-            <img src="/Logo.jpeg" alt="Logo" />
-          </div>
-          <div>
-            <span className="text-xl font-black tracking-wider text-white font-mono">
-              customize_ans
-            </span>
-            <p className="text-[10px] text-[#66FCF1] font-bold tracking-widest uppercase">
-              ART STUDIO
-            </p>
-          </div>
-        </div>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1 bg-[#1F2833]/80 p-1.5 rounded-full border border-[#C5C6C7]/15">
-          {navItems.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
-                activeTab === tab.id
-                  ? 'bg-[#66FCF1] text-[#0B0C10] font-bold shadow-md'
-                  : 'text-[#C5C6C7] hover:text-white hover:bg-[#45A29E]/20'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </nav>
-
-        {/* Actions & Mobile Toggle */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => setIsCartOpen(true)}
-            className="relative p-2.5 rounded-xl bg-[#1F2833] hover:bg-[#45A29E]/30 border border-[#C5C6C7]/20 text-white transition-all"
-            aria-label="Cart"
-          >
-            <ShoppingBag className="w-5 h-5 text-[#66FCF1]" />
-            {cartCount > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 bg-[#66FCF1] text-[#0B0C10] text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-md">
-                {cartCount}
-              </span>
+          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            {isOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             )}
-          </button>
-
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2.5 rounded-xl bg-[#1F2833] border border-[#C5C6C7]/20 text-white"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+          </svg>
+        </button>
       </div>
 
-      {/* Mobile Drawer Navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-[#1F2833] border-b border-[#C5C6C7]/20 px-6 py-4 space-y-2">
-          {navItems.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => { setActiveTab(tab.id); setMobileMenuOpen(false); }}
-              className={`w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                activeTab === tab.id
-                  ? 'bg-[#66FCF1] text-[#0B0C10] font-bold'
-                  : 'text-[#C5C6C7] hover:bg-[#0B0C10]'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-[#002B45] border-b border-slate-700 px-4 pt-2 pb-6 space-y-3 font-black text-xs uppercase tracking-widest">
+          <Link to="/" onClick={() => setIsOpen(false)} className="block py-2 hover:text-[#00A6C7]">Home</Link>
+          <Link to="/about" onClick={() => setIsOpen(false)} className="block py-2 hover:text-[#00A6C7]">About</Link>
+          <Link to="/menu" onClick={() => setIsOpen(false)} className="block py-2 hover:text-[#00A6C7]">Menu</Link>
+          <Link to="/events" onClick={() => setIsOpen(false)} className="block py-2 hover:text-[#00A6C7]">Events</Link>
+          <Link to="/contact" onClick={() => setIsOpen(false)} className="block py-2 hover:text-[#00A6C7]">Contact</Link>
+          <Link to="/merchandise" onClick={() => setIsOpen(false)} className="block py-2 hover:text-[#00A6C7]">Merchandise</Link>
         </div>
       )}
-    </header>
+    </nav>
   );
 }
