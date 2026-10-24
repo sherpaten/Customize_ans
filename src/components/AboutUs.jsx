@@ -13,7 +13,7 @@ export default function AboutUs() {
       <section className="w-full bg-[#0B0C10] py-20 px-6 sm:px-12 lg:px-20 border-b border-[#C5C6C7]/10">
         <div className="w-full text-center space-y-4">
           <span className="text-xs font-mono text-[#66FCF1] tracking-widest uppercase font-bold">ART STUDIO PROFILE</span>
-          <h1 className="text-4xl sm:text-6xl font-black text-white">About Us — customize_ans</h1>
+          <h1 className="text-4xl sm:text-6xl font-black text-white">customize_ans</h1>
           <p className="text-[#66FCF1] font-semibold text-lg sm:text-xl">Where Art Meets Fashion, Without Limits.</p>
         </div>
       </section>
