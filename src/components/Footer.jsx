@@ -18,7 +18,7 @@ export default function Footer() {
             </div>
           </div>
           <p className="text-slate-400 text-xs leading-relaxed">
-            Wearable Art Studio — Transforming everyday garments into unique personal expressions.
+            Wearable Art Studio ï¿½ Transforming everyday garments into unique personal expressions.
           </p>
         </div>
 
@@ -36,11 +36,14 @@ export default function Footer() {
         <div>
           <h4 className="text-xs font-bold uppercase tracking-widest text-slate-300 mb-4">Studio Location</h4>
           <p className="text-xs text-slate-400">Custom Wearable Art Studio</p>
+          <p className="text-xs text-slate-400">Boudha, Kathmandu</p>
+          <p className="text-xs text-slate-400">Phone: +977 9746492408</p>
+          <p className="text-xs text-slate-400">Email: customize.ans@gmail.com</p>
         </div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-slate-800/80 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} customize_ans. All rights reserved.
+        ï¿½ {new Date().getFullYear()} customize_ans. All rights reserved.
       </div>
     </footer>
   );
