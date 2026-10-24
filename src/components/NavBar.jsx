@@ -8,7 +8,6 @@ export default function NavBar() {
     <nav className="bg-[#0b0f17] text-white sticky top-0 z-50 border-b border-slate-800 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
         
-        {/* Logo Header using /Logo.jpeg from public folder */}
         <Link to="/" className="flex items-center gap-3" aria-label="customize_ans Art Studio Home">
           <img 
             src="/Logo.jpeg" 
@@ -21,7 +20,6 @@ export default function NavBar() {
           </div>
         </Link>
 
-        {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-widest text-slate-300">
           <Link to="/" className="hover:text-[#40E0D0] transition-colors">Home</Link>
           <Link to="/about" className="hover:text-[#40E0D0] transition-colors">About Us</Link>
@@ -30,7 +28,6 @@ export default function NavBar() {
           <Link to="/contact" className="hover:text-[#40E0D0] transition-colors">Contact</Link>
         </div>
 
-        {/* Mobile menu button */}
         <button 
           onClick={() => setIsOpen(!isOpen)} 
           aria-label="Toggle Navigation Menu"
@@ -48,7 +45,6 @@ export default function NavBar() {
 
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-[#0b0f17] border-b border-slate-800 px-4 pt-2 pb-6 space-y-3 font-bold text-xs uppercase tracking-widest text-slate-300">
           <Link to="/" onClick={() => setIsOpen(false)} className="block py-2 hover:text-[#40E0D0]">Home</Link>
